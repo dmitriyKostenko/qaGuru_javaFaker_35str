@@ -9,19 +9,15 @@ public class RandomUtils {
     static Faker faker = new Faker();
 
     public static String getRandomSubject() {
-        String[] subjects = {"Maths", "Chemistry", "Economics", "Arts"};
-
-        return getRandomItemFromArray(subjects);
+        return faker.options().option("Maths", "Chemistry", "Economics", "Arts");
     }
 
     public static String getRandomHobby() {
-        String[] hobbies = {"Sports", "Reading", "Music"};
-
-        return getRandomItemFromArray(hobbies);
+        return faker.options().option("Sports", "Reading", "Music");
     }
 
     public static String getRandomMonth() {
-        String[] months = {"January",
+        return faker.options().option("January",
                             "February",
                             "March",
                             "April",
@@ -33,9 +29,7 @@ public class RandomUtils {
                             "October",
                             "November",
                             "December"
-        };
-
-        return getRandomItemFromArray(months);
+        );
     }
 
     public static String getRandomYear() {
@@ -47,9 +41,7 @@ public class RandomUtils {
     }
 
     public static String getRandomState() {
-        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-
-        return getRandomItemFromArray(states);
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
     public static String getRandomCity(String state) {
@@ -64,11 +56,5 @@ public class RandomUtils {
 
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
-
-    public static String getRandomItemFromArray(String[] array) {
-        int index = getRandomInt(0, array.length - 1);
-
-        return array[index];
     }
 }
